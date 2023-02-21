@@ -15,6 +15,6 @@
 * **Last Modification**: 2023.02.21
 
 * **dataset sample**:
-  ![image](https://github.com/MaiEmily/map/blob/master/public/image/20190528145810708.png)
+  ![image](https://github.com/monica309673/LPD4VR/blob/master/sample.svg)
 
 </details>
