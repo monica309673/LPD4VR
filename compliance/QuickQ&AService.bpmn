@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1jnjtzv" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="11.3.1">
+  <bpmn:collaboration id="Collaboration_160kbo0">
+    <bpmn:participant id="Participant_1w74wj1" name="subject of care" processRef="Process_0e90kwm" />
+    <bpmn:participant id="Participant_0nr0wtf" name="Internet healthcare service platform provider" processRef="Process_0mrx7wi" />
+    <bpmn:participant id="Participant_062pvu5" name="medical staff" processRef="Process_1jrpw2d" />
+    <bpmn:messageFlow id="Flow_11xxzoh" sourceRef="Activity_1gjzywc" targetRef="Activity_1q14t07" />
+    <bpmn:messageFlow id="Flow_166tv6x" sourceRef="Activity_1q14t07" targetRef="Activity_1jot1ir" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_0e90kwm" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_0omeeju">
+      <bpmn:outgoing>Flow_0vpycvm</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_0ofvpq7" name="platform login">
+      <bpmn:incoming>Flow_0vpycvm</bpmn:incoming>
+      <bpmn:outgoing>Flow_1vta3pm</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0vpycvm" sourceRef="StartEvent_0omeeju" targetRef="Activity_0ofvpq7" />
+    <bpmn:task id="Activity_1gjzywc" name="enter a medical question">
+      <bpmn:incoming>Flow_1vta3pm</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1vta3pm" sourceRef="Activity_0ofvpq7" targetRef="Activity_1gjzywc" />
+  </bpmn:process>
+  <bpmn:process id="Process_0mrx7wi">
+    <bpmn:task id="Activity_1q14t07" name="matching of medical departments" />
+  </bpmn:process>
+  <bpmn:process id="Process_1jrpw2d">
+    <bpmn:task id="Activity_1jot1ir" name="give the answer">
+      <bpmn:outgoing>Flow_0p3d3w5</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_0gp5rsv">
+      <bpmn:incoming>Flow_0p3d3w5</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0p3d3w5" sourceRef="Activity_1jot1ir" targetRef="Event_0gp5rsv" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_160kbo0">
+      <bpmndi:BPMNShape id="Participant_0nr0wtf_di" bpmnElement="Participant_0nr0wtf" isHorizontal="true">
+        <dc:Bounds x="156" y="313" width="794" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1q14t07_di" bpmnElement="Activity_1q14t07">
+        <dc:Bounds x="480" y="380" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_1w74wj1_di" bpmnElement="Participant_1w74wj1" isHorizontal="true">
+        <dc:Bounds x="156" y="61" width="794" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_0omeeju">
+        <dc:Bounds x="206" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ofvpq7_di" bpmnElement="Activity_0ofvpq7">
+        <dc:Bounds x="300" y="140" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gjzywc_di" bpmnElement="Activity_1gjzywc">
+        <dc:Bounds x="480" y="140" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0vpycvm_di" bpmnElement="Flow_0vpycvm">
+        <di:waypoint x="242" y="180" />
+        <di:waypoint x="300" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vta3pm_di" bpmnElement="Flow_1vta3pm">
+        <di:waypoint x="400" y="180" />
+        <di:waypoint x="480" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_062pvu5_di" bpmnElement="Participant_062pvu5" isHorizontal="true">
+        <dc:Bounds x="156" y="565" width="794" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1jot1ir_di" bpmnElement="Activity_1jot1ir">
+        <dc:Bounds x="480" y="620" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0gp5rsv_di" bpmnElement="Event_0gp5rsv">
+        <dc:Bounds x="672" y="642" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0p3d3w5_di" bpmnElement="Flow_0p3d3w5">
+        <di:waypoint x="580" y="660" />
+        <di:waypoint x="672" y="660" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11xxzoh_di" bpmnElement="Flow_11xxzoh">
+        <di:waypoint x="530" y="220" />
+        <di:waypoint x="530" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_166tv6x_di" bpmnElement="Flow_166tv6x">
+        <di:waypoint x="530" y="460" />
+        <di:waypoint x="530" y="620" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

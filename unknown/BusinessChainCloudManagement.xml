@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bpmn:definitions expressionLanguage="http://www.w3.org/1999/XPath" id="my-diagram" targetNamespace="http://jbpm.org/example/bpmn2" typeLanguage="http://www.w3.org/2001/XMLSchema" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	
+	<bpmn:collaboration id="collaboration_52yic">
+		
+		
+		<bpmn:participant category="Pool" id="2141" isGroup="true" name="BusinessChainCloudManagement" processRef="2141_process"/>
+		
+	
+	</bpmn:collaboration>
+	
+	
+	<bpmn:process id="2141_process" isExecutable="true">
+		
+		
+		<bpmn:laneSet id="laneset_01vyk">
+			
+			
+			<bpmn:lane category="Lane" color="lightyellow" group="2141" id="21410.1" isGroup="true" name="Customer">
+				
+				
+				<bpmn:flowNodeRef>101</bpmn:flowNodeRef>
+				
+				
+				<bpmn:flowNodeRef>131</bpmn:flowNodeRef>
+				
+				
+				<bpmn:flowNodeRef>104</bpmn:flowNodeRef>
+				
+			
+			</bpmn:lane>
+			
+			
+			<bpmn:lane category="Lane" color="lightgreen" group="2141" id="21410.10.1" isGroup="true" name="CloudManagementPlatform">
+				
+				
+				<bpmn:flowNodeRef>-14</bpmn:flowNodeRef>
+				
+				
+				<bpmn:flowNodeRef>-17</bpmn:flowNodeRef>
+				
+				
+				<bpmn:flowNodeRef>-18</bpmn:flowNodeRef>
+				
+				
+				<bpmn:flowNodeRef>-19</bpmn:flowNodeRef>
+				
+			
+			</bpmn:lane>
+			
+			
+			<bpmn:lane category="Lane" color="white" group="2141" id="-4" name="Shops">
+				
+				
+				<bpmn:flowNodeRef>201</bpmn:flowNodeRef>
+				
+				
+				<bpmn:flowNodeRef>-12</bpmn:flowNodeRef>
+				
+				
+				<bpmn:flowNodeRef>-13</bpmn:flowNodeRef>
+				
+				
+				<bpmn:flowNodeRef>-15</bpmn:flowNodeRef>
+				
+				
+				<bpmn:flowNodeRef>-20</bpmn:flowNodeRef>
+				
+			
+			</bpmn:lane>
+			
+			
+			<bpmn:lane category="Lane" color="white" group="2141" id="-6" name="Local Internet Supervisory Authorities">
+				
+				
+				<bpmn:flowNodeRef>-21</bpmn:flowNodeRef>
+				
+			
+			</bpmn:lane>
+			
+			
+			<bpmn:lane category="Lane" color="white" group="2141" id="-7" name="Third party payment companies">
+				
+				
+				<bpmn:flowNodeRef>-16</bpmn:flowNodeRef>
+				
+			
+			</bpmn:lane>
+			
+		
+		</bpmn:laneSet>
+		
+		
+		<bpmn:startEvent category="event" eventDimension="1" eventType="1" group="21410.1" id="101" item="start" name="start up"/>
+		
+		
+		<bpmn:task category="activity" group="21410.1" id="131" item="generic task" name="Buy goods" taskType="0"/>
+		
+		
+		<bpmn:parallelGateway category="gateway" gatewayType="1" group="-4" id="201" name="Parallel Gateway"/>
+		
+		
+		<bpmn:task category="activity" group="-4" id="-12" item="generic task" name="Products present" taskType="0"/>
+		
+		
+		<bpmn:task category="activity" group="-4" id="-13" item="generic task" name="Pay" taskType="0"/>
+		
+		
+		<bpmn:task category="activity" group="21410.10.1" id="-14" item="generic task" name="Internet Supervision Audit" taskType="0"/>
+		
+		
+		<bpmn:task category="activity" group="-4" id="-15" item="generic task" name="Internet service" taskType="0"/>
+		
+		
+		<bpmn:task category="activity" group="-7" id="-16" item="generic task" name="Pay" taskType="0"/>
+		
+		
+		<bpmn:parallelGateway category="gateway" gatewayType="1" group="21410.10.1" id="-17" name="Parallel Gateway"/>
+		
+		
+		<bpmn:task category="activity" group="21410.10.1" id="-18" item="generic task" name="Authentication of the customer's identity" taskType="0"/>
+		
+		
+		<bpmn:parallelGateway category="gateway" gatewayType="1" group="21410.10.1" id="-19" name="Parallel Gateway"/>
+		
+		
+		<bpmn:parallelGateway category="gateway" gatewayType="1" group="-4" id="-20" name="Parallel Gateway"/>
+		
+		
+		<bpmn:task category="activity" group="-6" id="-21" item="generic task" name="Internet Supervision Audit" taskType="0"/>
+		
+		
+		<bpmn:endEvent category="event" eventDimension="8" eventType="1" group="21410.1" id="104" item="End" name="end"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_51cvl" sourceRef="101" targetRef="131"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_53afh" sourceRef="131" targetRef="201"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_34nyu" name="" sourceRef="201" targetRef="-15" visible="true"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_27hfl" name="" sourceRef="201" targetRef="-13" visible="true"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_99ktj" sourceRef="-15" targetRef="-17"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_76wpk" name="" sourceRef="-17" targetRef="-18" visible="true"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_88nuq" sourceRef="-18" targetRef="-19"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_95xig" name="" sourceRef="-17" targetRef="-14" visible="true"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_80tto" name="" sourceRef="-19" targetRef="-12" visible="true"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_81bqt" sourceRef="-13" targetRef="-16"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_88bgd" sourceRef="-14" targetRef="-21"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_00xbp" sourceRef="-21" targetRef="-19"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_15qec" sourceRef="-12" targetRef="-20"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_23lls" sourceRef="-16" targetRef="-20"/>
+		
+		
+		<bpmn:sequenceFlow id="SequenceFlow_97gvs" name="" sourceRef="-20" targetRef="104" visible="true"/>
+		
+	
+	</bpmn:process>
+	
+	
+	<bpmndi:BPMNDiagram modelData="-1032.633563697705 -215.83351227475163">
+		
+		
+		<bpmndi:BPMNPlane bpmnElement="collaboration_52yic">
+			
+			
+			<bpmndi:BPMNShape bpmnElement="2141" id="2141_di" isHorizontal="true">
+				
+				
+				<dc:Bounds x="-872.1415240575071" y="-101.197572280663"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="21410.1" id="21410.1_di" isHorizontal="true">
+				
+				
+				<dc:Bounds height="114.76108687499999" width="1424.165111875" x="-872.1415240575071" y="-101.197572280663"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="21410.10.1" id="21410.10.1_di" isHorizontal="true">
+				
+				
+				<dc:Bounds height="219" width="1424.165111875" x="-872.1415240575071" y="14.802427719337004"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-4" id="-4_di" isHorizontal="true">
+				
+				
+				<dc:Bounds height="241" width="1424.165111875" x="-872.1415240575071" y="234.802427719337"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-6" id="-6_di" isHorizontal="true">
+				
+				
+				<dc:Bounds height="152.52284749830795" width="1424.165111875" x="-872.1415240575071" y="476.802427719337"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-7" id="-7_di" isHorizontal="true">
+				
+				
+				<dc:Bounds height="172.52284749830795" width="1424.165111875" x="-872.1415240575071" y="630.802427719337"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="101" id="101_di">
+				
+				
+				<dc:Bounds x="-802.1415240575071" y="-64.197572280663"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="131" id="131_di">
+				
+				
+				<dc:Bounds x="-674.1415240575071" y="-49.197572280662996"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="201" id="201_di">
+				
+				
+				<dc:Bounds x="-533.1415240575071" y="352.80242771933695"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-12" id="-12_di">
+				
+				
+				<dc:Bounds x="225.85847594249287" y="292.802427719337"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-13" id="-13_di">
+				
+				
+				<dc:Bounds x="-378.1415240575072" y="411.80242771933695"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-14" id="-14_di">
+				
+				
+				<dc:Bounds x="-83.14152405750718" y="181.80242771933695"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-15" id="-15_di">
+				
+				
+				<dc:Bounds x="-374.1415240575072" y="291.802427719337"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-16" id="-16_di">
+				
+				
+				<dc:Bounds x="-376.7331843700072" y="696.907553969337"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-17" id="-17_di">
+				
+				
+				<dc:Bounds x="-238.14152405750718" y="114.802427719337"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-18" id="-18_di">
+				
+				
+				<dc:Bounds x="-81.14152405750718" y="66.802427719337"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-19" id="-19_di">
+				
+				
+				<dc:Bounds x="63.85847594249282" y="117.802427719337"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-20" id="-20_di">
+				
+				
+				<dc:Bounds x="373.77683937999313" y="364.85545053183705"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="-21" id="-21_di">
+				
+				
+				<dc:Bounds x="-85.92430874500701" y="535.8771799068372"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNShape bpmnElement="104" id="104_di">
+				
+				
+				<dc:Bounds x="515.0235878174931" y="-54.55464946816301"/>
+				
+			
+			</bpmndi:BPMNShape>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_51cvl" id="SequenceFlow_51cvl_di">
+				
+				
+				<di:waypoint x="-780.6415240575071" y="-64.197572280663"/>
+				
+				
+				<di:waypoint x="-770.6415240575071" y="-64.197572280663"/>
+				
+				
+				<di:waypoint x="-762.3915240575071" y="-64.197572280663"/>
+				
+				
+				<di:waypoint x="-762.3915240575071" y="-49.197572280662996"/>
+				
+				
+				<di:waypoint x="-754.1415240575071" y="-49.197572280662996"/>
+				
+				
+				<di:waypoint x="-734.1415240575071" y="-49.197572280662996"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_53afh" id="SequenceFlow_53afh_di">
+				
+				
+				<di:waypoint x="-614.1415240575071" y="-49.197572280662996"/>
+				
+				
+				<di:waypoint x="-604.1415240575071" y="-49.197572280662996"/>
+				
+				
+				<di:waypoint x="-533.1415240575071" y="-49.197572280662996"/>
+				
+				
+				<di:waypoint x="-533.1415240575071" y="118.55242771933706"/>
+				
+				
+				<di:waypoint x="-533.1415240575071" y="286.302427719337"/>
+				
+				
+				<di:waypoint x="-533.1415240575071" y="306.30242771933706"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_34nyu" id="SequenceFlow_34nyu_di">
+				
+				
+				<di:waypoint x="-492.6415240575071" y="352.80242771933695"/>
+				
+				
+				<di:waypoint x="-482.6415240575071" y="352.80242771933695"/>
+				
+				
+				<di:waypoint x="-468.3915240575071" y="352.80242771933695"/>
+				
+				
+				<di:waypoint x="-468.3915240575071" y="291.80242771933695"/>
+				
+				
+				<di:waypoint x="-454.1415240575071" y="291.80242771933695"/>
+				
+				
+				<di:waypoint x="-434.1415240575071" y="291.80242771933695"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_27hfl" id="SequenceFlow_27hfl_di">
+				
+				
+				<di:waypoint x="-492.6415240575071" y="366.30242771933683"/>
+				
+				
+				<di:waypoint x="-482.6415240575071" y="366.30242771933683"/>
+				
+				
+				<di:waypoint x="-470.3915240575071" y="366.30242771933683"/>
+				
+				
+				<di:waypoint x="-470.3915240575071" y="411.8024277193367"/>
+				
+				
+				<di:waypoint x="-458.1415240575071" y="411.8024277193367"/>
+				
+				
+				<di:waypoint x="-438.1415240575071" y="411.8024277193367"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_99ktj" id="SequenceFlow_99ktj_di">
+				
+				
+				<di:waypoint x="-314.1415240575072" y="285.802427719337"/>
+				
+				
+				<di:waypoint x="-304.1415240575072" y="285.802427719337"/>
+				
+				
+				<di:waypoint x="-308" y="285.802427719337"/>
+				
+				
+				<di:waypoint x="-308" y="285.802427719337"/>
+				
+				
+				<di:waypoint x="-238.14152405750718" y="285.802427719337"/>
+				
+				
+				<di:waypoint x="-238.14152405750718" y="169.302427719337"/>
+				
+				
+				<di:waypoint x="-238.14152405750718" y="149.302427719337"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_76wpk" id="SequenceFlow_76wpk_di">
+				
+				
+				<di:waypoint x="-197.64152405750718" y="114.802427719337"/>
+				
+				
+				<di:waypoint x="-187.64152405750718" y="114.802427719337"/>
+				
+				
+				<di:waypoint x="-174.39152405750718" y="114.802427719337"/>
+				
+				
+				<di:waypoint x="-174.39152405750718" y="66.802427719337"/>
+				
+				
+				<di:waypoint x="-161.14152405750718" y="66.802427719337"/>
+				
+				
+				<di:waypoint x="-141.14152405750718" y="66.802427719337"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_88nuq" id="SequenceFlow_88nuq_di">
+				
+				
+				<di:waypoint x="-21.141524057507183" y="66.802427719337"/>
+				
+				
+				<di:waypoint x="-11.141524057507183" y="66.802427719337"/>
+				
+				
+				<di:waypoint x="-3.8915240575071834" y="66.802427719337"/>
+				
+				
+				<di:waypoint x="-3.8915240575071834" y="117.80242771933702"/>
+				
+				
+				<di:waypoint x="3.3584759424928166" y="117.80242771933702"/>
+				
+				
+				<di:waypoint x="23.358475942492817" y="117.80242771933702"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_95xig" id="SequenceFlow_95xig_di">
+				
+				
+				<di:waypoint x="-197.64152405750718" y="128.30242771933706"/>
+				
+				
+				<di:waypoint x="-187.64152405750718" y="128.30242771933706"/>
+				
+				
+				<di:waypoint x="-175.39152405750718" y="128.30242771933706"/>
+				
+				
+				<di:waypoint x="-175.39152405750718" y="181.80242771933712"/>
+				
+				
+				<di:waypoint x="-163.14152405750718" y="181.80242771933712"/>
+				
+				
+				<di:waypoint x="-143.14152405750718" y="181.80242771933712"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_80tto" id="SequenceFlow_80tto_di">
+				
+				
+				<di:waypoint x="77.35847594249282" y="152.302427719337"/>
+				
+				
+				<di:waypoint x="77.35847594249282" y="162.302427719337"/>
+				
+				
+				<di:waypoint x="77.35847594249282" y="164"/>
+				
+				
+				<di:waypoint x="77.35847594249282" y="164"/>
+				
+				
+				<di:waypoint x="77.35847594249282" y="286.802427719337"/>
+				
+				
+				<di:waypoint x="145.85847594249282" y="286.802427719337"/>
+				
+				
+				<di:waypoint x="165.85847594249282" y="286.802427719337"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_81bqt" id="SequenceFlow_81bqt_di">
+				
+				
+				<di:waypoint x="-318.1415240575072" y="405.80242771933695"/>
+				
+				
+				<di:waypoint x="-308.1415240575072" y="405.80242771933695"/>
+				
+				
+				<di:waypoint x="-308.1415240575072" y="527.854990844337"/>
+				
+				
+				<di:waypoint x="-456.7331843700072" y="527.854990844337"/>
+				
+				
+				<di:waypoint x="-456.7331843700072" y="649.9075539693376"/>
+				
+				
+				<di:waypoint x="-436.7331843700072" y="649.9075539693376"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_88bgd" id="SequenceFlow_88bgd_di">
+				
+				
+				<di:waypoint x="-23.141524057507183" y="175.80242771933695"/>
+				
+				
+				<di:waypoint x="-13.141524057507183" y="175.80242771933695"/>
+				
+				
+				<di:waypoint x="-13.141524057507183" y="352.83980381308737"/>
+				
+				
+				<di:waypoint x="-165.924308745007" y="352.83980381308737"/>
+				
+				
+				<di:waypoint x="-165.924308745007" y="529.8771799068375"/>
+				
+				
+				<di:waypoint x="-145.924308745007" y="529.8771799068375"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_00xbp" id="SequenceFlow_00xbp_di">
+				
+				
+				<di:waypoint x="-25.92430874500701" y="529.8771799068372"/>
+				
+				
+				<di:waypoint x="-15.92430874500701" y="529.8771799068372"/>
+				
+				
+				<di:waypoint x="-12" y="529.8771799068372"/>
+				
+				
+				<di:waypoint x="-12" y="529.8771799068372"/>
+				
+				
+				<di:waypoint x="50.35847594249282" y="529.8771799068372"/>
+				
+				
+				<di:waypoint x="50.35847594249282" y="172.302427719337"/>
+				
+				
+				<di:waypoint x="50.35847594249282" y="152.302427719337"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_15qec" id="SequenceFlow_15qec_di">
+				
+				
+				<di:waypoint x="285.8584759424929" y="292.802427719337"/>
+				
+				
+				<di:waypoint x="295.8584759424929" y="292.802427719337"/>
+				
+				
+				<di:waypoint x="304.56765766124306" y="292.802427719337"/>
+				
+				
+				<di:waypoint x="304.56765766124306" y="364.8554505318372"/>
+				
+				
+				<di:waypoint x="313.27683937999313" y="364.8554505318372"/>
+				
+				
+				<di:waypoint x="333.27683937999313" y="364.8554505318372"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_23lls" id="SequenceFlow_23lls_di">
+				
+				
+				<di:waypoint x="-316.7331843700072" y="649.907553969337"/>
+				
+				
+				<di:waypoint x="-306.7331843700072" y="649.907553969337"/>
+				
+				
+				<di:waypoint x="3.2718275049929844" y="649.907553969337"/>
+				
+				
+				<di:waypoint x="3.2718275049929844" y="372.35545053183705"/>
+				
+				
+				<di:waypoint x="313.27683937999313" y="372.35545053183705"/>
+				
+				
+				<di:waypoint x="333.27683937999313" y="372.35545053183705"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+			
+			<bpmndi:BPMNEdge bpmnElement="SequenceFlow_97gvs" id="SequenceFlow_97gvs_di">
+				
+				
+				<di:waypoint x="373.77683937999313" y="318.35545053183705"/>
+				
+				
+				<di:waypoint x="373.77683937999313" y="308.35545053183705"/>
+				
+				
+				<di:waypoint x="373.77683937999313" y="-54.55464946816301"/>
+				
+				
+				<di:waypoint x="422.9002135987431" y="-54.55464946816301"/>
+				
+				
+				<di:waypoint x="472.0235878174931" y="-54.55464946816301"/>
+				
+				
+				<di:waypoint x="492.0235878174931" y="-54.55464946816301"/>
+				
+			
+			</bpmndi:BPMNEdge>
+			
+		
+		</bpmndi:BPMNPlane>
+		
+	
+	</bpmndi:BPMNDiagram>
+	
+
+</bpmn:definitions>
