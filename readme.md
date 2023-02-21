@@ -23,10 +23,14 @@ A business process dataset of Internet healthcare service regulation, which cont
    * Qualification review is required for medical institutions to settle in
    * Qualification review is required for the entry of medical staff
    * The service process must be complete
+* **data augmentation method**:
+   * Back-translation
+   * Randomly removing some of the task nodes
+   * Targeted change of some compliance processes to violation processes, e.g. removal of some data objects required for compliance.
 
 * **dataset analysis**:
-  * **Distribution of the BPMN elements numbers in the dataset**
-  ![image](https://github.com/monica309673/LPD4VR/blob/master/lens.png)
- 
+  * **Distribution of the BPMN elements numbers in the dataset**：
+  
+    <img src="https://github.com/monica309673/LPD4VR/blob/master/lens.png" width="500px">
    
    
