@@ -25,6 +25,8 @@ A business process dataset of Internet healthcare service regulation, which cont
    * The service process must be complete
 
 * **dataset analysis**:
-  * 
+  * **Distribution of the BPMN elements numbers in the dataset**
+  ![image](https://github.com/monica309673/LPD4VR/blob/master/lens.png)
+ 
    
    
