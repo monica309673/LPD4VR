@@ -15,7 +15,7 @@ A business process dataset of Internet healthcare service regulation, which cont
 * **Last Modification**: 2023.02.21
 
 * **dataset sample**:
-  ![image](https://github.com/monica309673/LPD4VR/blob/master/sample.svg)
+   <img src="https://github.com/monica309673/LPD4VR/blob/master/sample.svg" >
  
 * **regulatory rules**:
    * Internet medical services cannot provide first-diagnosis services
