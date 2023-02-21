@@ -1,8 +1,8 @@
 ### Business Process Dataset of Service Regulation (Labelled process dataset for violation recognition 2.0, LPD4VR2.0)
 
-<details>
+A business process dataset of Internet healthcare service regulation, which contains 102 service process files. All business process files are in XML format.
 
-  **<summary>Detail</summary>**
+ **<summary>Detail</summary>**
 
 [comment]: <One-line summary (TL:DR)>
   
@@ -16,5 +16,15 @@
 
 * **dataset sample**:
   ![image](https://github.com/monica309673/LPD4VR/blob/master/sample.svg)
+ 
+* **regulatory rules**:
+   * Internet medical services cannot provide first-diagnosis services
+   * The medical staff need to be authenticated before conducting consultations
+   * Qualification review is required for medical institutions to settle in
+   * Qualification review is required for the entry of medical staff
+   * The service process must be complete
 
-</details>
+* **dataset analysis**:
+  * 
+   
+   
