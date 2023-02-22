@@ -17,7 +17,7 @@ A business process dataset of Internet healthcare service regulation, which cont
 * **dataset sample**:
    <img src="https://github.com/monica309673/LPD4VR/blob/master/sample.svg" >
  
-* **regulatory rules**:
+* **regulation rules**:
    * Internet medical services cannot provide first-diagnosis services
    * The medical staff need to be authenticated before conducting consultations
    * Qualification review is required for medical institutions to settle in
@@ -32,5 +32,8 @@ A business process dataset of Internet healthcare service regulation, which cont
   * **Distribution of the BPMN elements numbers in the dataset**：
   
     <img src="https://github.com/monica309673/LPD4VR/blob/master/lens.png" width="500px">
-   
+    
+  * **Semantic distribution of processes in the dataset**:
+  
+    <img src="https://github.com/monica309673/LPD4VR/blob/master/tsne4.png" width="500px">
    
