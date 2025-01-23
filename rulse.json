@@ -1,0 +1,102 @@
+[
+    {
+        "id":"0",
+        "type":"general rules", 
+        "category":"bpmn2.0 rule",
+        "scope": "general",
+        "subject":"all participants of Internet healthcare service",
+        "trigger words":"none",
+        "formal style":"",
+        "content": "Start events must have outgoing."
+    },
+    {
+        "id":"1",
+        "type":"general rules", 
+        "category":"bpmn2.0 rule",
+        "scope": "general",
+        "subject":"all participants of Internet healthcare service",
+        "trigger words":"none",
+        "formal style":"",
+        "content": "End events must have incoming."
+    },
+    {
+        "id":"2",
+        "type":"general rules", 
+        "category":"bpmn2.0 rule",
+        "scope": "general",
+        "subject":"all participants of Internet healthcare service",
+        "trigger words":"none",
+        "formal style":"",
+        "content": "Tasks must have outgoing and incoming."
+    },
+    {
+        "id":"3",
+        "type":"business rules",
+        "category":"essential task rule",
+        "scope": "Internet healthcare service",
+        "subject":"pharmacy",
+        "trigger words":"pharmacy, prescription",
+        "formal style":"required_tasks=(prescription_verification); if required_tasks not in tasks, result=violation ",
+        "content": "If the pharmacy does not perform prescription verification, it is a violation process."
+    },
+    {
+        "id":"4",
+        "type":"business rules",
+        "category":"data requirements rule",
+        "scope": "Internet healthcare service",
+        "subject":"medical institution",
+        "trigger words":"medical institution, qualification",
+        "formal style":"Medical_Institution_Qualification_Material=(ACEMI, MTPL, SDSNL, LMDCL, RDTL, RSL, SCPND&FPS, CMAR, ICPL); if Upload_Material == Medical_Institution_Qualification_Material, result=compliance",
+        "content": "The upload of medical institution qualification materials must include ACEMI, MTPL, SDSNL, LMDCL, RDTL, RSL, SCPND&FPS, CMAR, ICPL, otherwise it will be judged as a violation process"
+    },
+    {
+        "id":"5",
+        "type":"business rules",
+        "category":"data requirements rule",
+        "scope": "Internet healthcare service",
+        "subject":"medical staff",
+        "trigger words":"medical staff, qualification ",
+        "formal style":"Medical_Staff_Qualification_Material=(PQC, PPC); if Upload_Material == Medical_Staff_Qualification_Material, result=compliance ",
+        "content": "The upload of medical staff qualification materials must include PQC and PPC, otherwise it will be judged as a violation process"
+    },
+    {
+        "id":"6",
+        "type":"business rules",
+        "category":"essential task rule",
+        "scope": "Internet healthcare service",
+        "subject":"pharmacy",
+        "trigger words":"pharmacy, drug",
+        "formal style":"required_tasks=(drug_list_verification); if required_tasks not in tasks, result=violation ",
+        "content": "If the pharmacy does not perform drug list verification(judging whether there are prescription drugs), it will be judged as a violation process"
+    },
+    {
+        "id":"7",
+        "type":"business rules",
+        "category":"essential task rule",
+        "scope": "Internet healthcare service",
+        "subject":"Internet healthcare service provider",
+        "trigger words":"Internet healthcare service provider, online diagnosis",
+        "formal style":"required_tasks=(judgement_of_the_first_diagnosis_online); if required_tasks not in tasks, result=violation ",
+        "content": "If the Internet healthcare service provider does not judge whether the user is the first diagnosis online, it will be judged as a violation of the process"
+    },
+    {
+        "id":"8",
+        "type":"business rules",
+        "category":"task execution rule",
+        "scope": "Internet healthcare service",
+        "subject":"Internet healthcare service provider, medical staff",
+        "trigger words":"Internet healthcare service provider, medical staff, online diagnosis",
+        "formal style":"required_finished_tasks=(identity authentication); if executing_task==online_diagnosis and required_finished_tasks in finished_tasks, result=compliance ",
+        "content": "If medical staff do not perform identity authentication before online diagnosis and treatment, it will be judged as a violation of the process"
+    },
+    {
+        "id":"9",
+        "type":"business rules",
+        "category":"essential task rule",
+        "scope": "Internet healthcare service",
+        "subject":"Internet healthcare service provider",
+        "trigger words":"Internet healthcare service provider, online appointment",
+        "formal style":"required_tasks=(judgement_of_the_first_diagnosis_online); if required_tasks not in tasks, result=violation",
+        "content": "If the platform does not judge whether the user's online diagnosis and treatment appointment is the first diagnosis and treatment, then it is judged as a violation process"  
+    }
+]
